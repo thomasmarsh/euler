@@ -1,4 +1,4 @@
-module E010 where
+module E010 (e10) where
 
 import Data.Numbers.Primes
 

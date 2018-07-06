@@ -1,4 +1,4 @@
-module E004 where
+module E004 (e4) where
 
 isPalindrome n = show n == reverse (show n)
 

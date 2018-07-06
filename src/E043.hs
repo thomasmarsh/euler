@@ -1,4 +1,4 @@
-module E043 where
+module E043 (e43) where
 
 import Data.List (permutations)
 import Data.Digits (unDigits)

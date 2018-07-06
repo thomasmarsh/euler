@@ -1,4 +1,4 @@
-module E005 where
+module E005 (e5) where
 
 f n = foldr1 lcm [1..n]
 

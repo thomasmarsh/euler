@@ -1,4 +1,4 @@
-module E022 where
+module E022 (e22) where
 
 import Data.Char (ord)
 import Data.List.Split (splitOn)

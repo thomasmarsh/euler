@@ -1,4 +1,4 @@
-module E002 where
+module E002 (e2) where
 
 fibs = 1 : 1 : zipWith (+) fibs (tail fibs)
 

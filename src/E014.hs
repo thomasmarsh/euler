@@ -1,4 +1,4 @@
-module E014 where
+module E014 (e14) where
 
 import Data.Array
 import Data.List

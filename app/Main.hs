@@ -1,10 +1,8 @@
 module Main where
 
-import           Text.Printf
 import           Data.List (sort)
 import qualified Data.Map as M
 import           System.Environment (getArgs)
-import           System.CPUTime
 import           System.Directory (doesFileExist)
 import           System.FilePath (FilePath, (</>))
 
@@ -18,13 +16,14 @@ import E007
 import E008
 import E009
 import E010
+import E011
 import E014
 import E022
 import E043
 
 data Problem
     = PN Integer
-    | PF FilePath (String -> Integer)
+    | PF (String -> Integer) FilePath
 
 problems :: M.Map Int Problem
 problems = M.fromList
@@ -38,8 +37,9 @@ problems = M.fromList
     , (8, PN e8)
     , (9, PN e9)
     , (10, PN e10)
+    , (11, PN e11)
     , (14, PN e14)
-    , (22, PF "E022.txt" e22)
+    , (22, PF e22 "E022.txt")
     , (43, PN e43)
     ]
 
@@ -67,7 +67,7 @@ runProblem :: Problem -> IO ()
 runProblem p
     = case p of
         PN f -> print f
-        PF s f -> runFileProblem s f
+        PF s f -> runFileProblem f s
 
 runOne :: Int -> IO ()
 runOne n = do

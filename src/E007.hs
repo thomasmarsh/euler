@@ -1,4 +1,4 @@
-module E007 where
+module E007 (e7) where
 
 prime :: Int -> Bool
 prime n

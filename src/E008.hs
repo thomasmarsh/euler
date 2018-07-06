@@ -1,4 +1,4 @@
-module E008 where
+module E008 (e8) where
 
 import Data.Char
 import Data.List.Split

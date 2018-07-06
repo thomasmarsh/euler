@@ -1,4 +1,4 @@
-module E001 where
+module E001 (e1) where
 
 is3or5multiple x
   | x `mod` 3 == 0 = True

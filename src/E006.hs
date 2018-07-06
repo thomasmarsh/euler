@@ -1,4 +1,4 @@
-module E006 where
+module E006 (e6) where
 
 f n = b*b - a
     where

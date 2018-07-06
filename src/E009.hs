@@ -1,4 +1,4 @@
-module E009 where
+module E009 (e9) where
 
 isInt x = x == fromInteger (round x)
 

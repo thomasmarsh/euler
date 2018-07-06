@@ -1,4 +1,4 @@
-module E003 where
+module E003 (e3) where
 
 f i n
   | i*i <= n = if n `mod` i /= 0 then f (i+1) n else f i (quot n i)

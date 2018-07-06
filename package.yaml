@@ -1,0 +1,56 @@
+name:                euler
+version:             0.1.0.0
+github:              "thomasmarsh/euler"
+license:             BSD3
+author:              "Thomas Marsh"
+maintainer:          "thomas.marsh2@gmail.com"
+copyright:           "year Thomas Marsh"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Development
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/thomasmarsh/euler#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- array
+- containers
+- digits
+- directory
+- filepath
+- primes
+- split
+
+library:
+  source-dirs: src
+
+executables:
+  euler:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -O2
+    dependencies:
+    - euler
+
+tests:
+  euler-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - euler

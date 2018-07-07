@@ -28,6 +28,7 @@ dependencies:
 - filepath
 - primes
 - split
+- string-qq
 
 library:
   source-dirs: src

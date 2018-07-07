@@ -26,6 +26,7 @@ dependencies:
 - digits
 - directory
 - filepath
+- mtl
 - primes
 - split
 - string-qq

@@ -28,6 +28,7 @@ dependencies:
 - filepath
 - mtl
 - primes
+- profunctors
 - split
 - string-qq
 

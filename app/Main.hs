@@ -29,6 +29,7 @@ import E022
 import E035
 import E036
 import E037
+import E038
 import E043
 
 data Problem
@@ -60,6 +61,7 @@ problems = M.fromList
     , (35, PN e35)
     , (36, PN e36)
     , (37, PN e37)
+    , (38, PN e38)
     , (43, PN e43)
     ]
 

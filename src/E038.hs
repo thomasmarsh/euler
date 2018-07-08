@@ -1,4 +1,4 @@
-module E038 (e38, pandigital) where
+module E038 (e38) where
 
 import Data.Digits (digits, unDigits)
 import Data.List (inits, sort)

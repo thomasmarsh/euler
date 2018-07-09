@@ -32,6 +32,7 @@ import E039
 import E040
 import E042
 import E043
+import E047
 
 data Problem
     = PN Integer
@@ -69,4 +70,5 @@ problems = M.fromList
     , (40, PN e40)
     , (42, PF e42 "E042.txt")
     , (43, PN e43)
+    , (47, PN e47)
     ]

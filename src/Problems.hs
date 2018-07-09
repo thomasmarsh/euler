@@ -25,6 +25,7 @@ import E020
 import E021
 import E022
 import E024
+import E025
 import E035
 import E036
 import E037
@@ -64,6 +65,7 @@ problems = M.fromList
     , (21, PN e21)
     , (22, PF e22 "E022.txt")
     , (24, PN e24)
+    , (25, PN e25)
     , (35, PN e35)
     , (36, PN e36)
     , (37, PN e37)

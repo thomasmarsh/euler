@@ -19,6 +19,7 @@ import E014
 import E015
 import E016
 import E017
+import E018
 import E019
 import E020
 import E021
@@ -55,6 +56,7 @@ problems = M.fromList
     , (15, PN e15)
     , (16, PN e16)
     , (17, PN e17)
+    , (18, PN e18)
     , (19, PN e19)
     , (20, PN e20)
     , (21, PN e21)

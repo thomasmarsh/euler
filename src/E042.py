@@ -1,7 +1,7 @@
 from math import sqrt
 
 def load():
-    with open('words.txt', 'r') as f: return eval(f.read()) 
+    with open('E042.txt', 'r') as f: return eval(f.read())
 
 def is_t(n):
     x = (sqrt(8*n+1)-1)/2

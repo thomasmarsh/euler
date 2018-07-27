@@ -20,4 +20,5 @@ def f(n):
     return reduce(lambda a, b: a+b[0],
                   [x for x in enumerate(b) if not x[1]], 0)
 
-print f(28123)
+print len(abundant(20161))
+print f(20161)

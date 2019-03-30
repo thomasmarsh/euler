@@ -25,6 +25,7 @@ dependencies:
 - containers
 - digits
 - directory
+- extra
 - filepath
 - mtl
 - primes

@@ -2,9 +2,7 @@ module E042 (e42) where
 
 import Data.Char (ord)
 import Data.List.Split (splitOn)
-
-isInt :: RealFrac a => a -> Bool
-isInt x = x == fromInteger (floor x)
+import Util (isInt)
 
 isTriangular :: Integral a => a -> Bool
 isTriangular n = isInt x

@@ -4,6 +4,7 @@ import Data.Digits (digits, unDigits)
 import Data.List (inits, sort)
 import Data.Maybe (mapMaybe)
 
+isPandigital :: [Int] -> Bool
 isPandigital ns = [1..9] == sort ns
 
 pandigital :: Int -> Maybe Int
@@ -17,4 +18,5 @@ pandigital n
         cs = takeWhile (\x -> length x < 10) bs
         ds = filter isPandigital cs
 
+e38 :: Integer
 e38 = fromIntegral $ maximum $ mapMaybe pandigital [1..10000]

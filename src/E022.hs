@@ -13,4 +13,5 @@ score name = sum [ord c - ord 'A'+1 | c <- name]
 parse :: String -> [String]
 parse = sort . splitOn "," . filter (/= '"')
 
-e22 s = fromIntegral $ f $ parse s
+e22 :: String -> Integer
+e22 = fromIntegral . f . parse

@@ -23,11 +23,9 @@ import qualified Data.IntMap as M
 import Data.IntMap ((!))
 import Control.Monad.State
 
-import Debug.Trace (trace)
-
 type DState = M.IntMap Int
-type AState = M.IntMap Int
 
+sdivisors' :: Integral a => a -> a
 sdivisors' n = sum $ 1 : filter ((==0) . rem n) [2..n `div` 2]
 
 sdivisors :: Int -> State DState ()
@@ -40,6 +38,7 @@ sdivisors n = do
 divs :: [Int] -> M.IntMap Int
 divs ns = execState (mapM sdivisors ns) M.empty
 
+solve :: Int -> Int -> Int
 solve a b = sum
     [ n + m
     | n <- [a..b]
@@ -49,4 +48,5 @@ solve a b = sum
         ds = divs [a..b]
         isAbundant n = (ds!n) > n
 
+e23 :: Integer
 e23 = fromIntegral $ solve 12 20161

@@ -6,6 +6,7 @@ import Control.Monad.State
 
 type DState = M.IntMap Int
 
+sdivisors' :: Integral a => a -> a
 sdivisors' n = sum $ 1 : filter ((==0) . rem n) [2..n `div` 2]
 
 sdivisors :: Int -> State DState Int
@@ -24,8 +25,10 @@ isAmicable n = do
     q <- sdivisors m
     pure (m /= n && q == n)
 
+f :: Int -> State DState Int
 f n = do
     as <- filterM isAmicable [1..n-1]
     pure (sum as)
 
+e21 :: Integer
 e21 = fromIntegral $ evalState (f 10000) M.empty

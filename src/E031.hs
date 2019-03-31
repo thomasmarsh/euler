@@ -18,11 +18,14 @@ tab (i, k) = do
     m <- tlookup k
     modify $ M.insert i (n+m)
 
+coins :: [Int]
 coins = [1, 2, 5, 10, 20, 50, 100, 200]
 
-search n = state!n
+search :: Int -> Int
+search n = state'!n
     where
         xs = [(i, i-coin) | coin <- coins, i <- [coin..n]]
-        state = execState (mapM tab xs) (M.fromList [(0,1)])
+        state' = execState (mapM tab xs) (M.fromList [(0,1)])
 
+e31 :: Integer
 e31 = fromIntegral $ search 200

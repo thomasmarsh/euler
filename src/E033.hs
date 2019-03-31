@@ -2,6 +2,7 @@ module E033 (e33) where
 
 import Data.Bifunctor (bimap)
 
+e33 :: Integer
 e33 = dp `div` gcd np dp
     where
         (np, dp) = bimap product product $ unzip xs

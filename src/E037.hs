@@ -10,27 +10,40 @@ module E037 (e37) where
 --
 -- NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
 
-import Data.Numbers.Primes (primes, isPrime)
-import Data.Digits (digits, unDigits)
-import Data.Profunctor (dimap)
+import Control.Applicative (liftA2)
+import Data.Numbers.Primes (isPrime)
 import Data.List (nub)
+import Util (onDigits)
 
-nlen = (+1) . floor . logBase 10 . fromIntegral
+nlen :: Int -> Int
+nlen = (+1)
+    . (floor :: Double -> Int)
+    . logBase 10
+    . fromIntegral
 
-asDigits = dimap (digits 10) (unDigits 10)
+truncL, truncR :: Int -> Int
+truncL = onDigits init
+truncR = onDigits tail
 
-truncL = asDigits init
-truncR = asDigits tail
-
+overLen :: a -> Int -> (a -> a) -> [a]
 overLen n m f = take m $ iterate f n
 
+truncations :: Int -> [Int]
 truncations n =
     let m = nlen n
         f = overLen n m
     in  nub $ f truncL ++ f truncR
 
+nonPrime :: [Int] -> [Int]
 nonPrime = filter (not . isPrime)
 
-isTruncPrime n = (n > 7) && null (nonPrime $ truncations n)
+isTruncPrime :: Int -> Bool
+isTruncPrime = liftA2 (&&) (> 7)
+                           (null . nonPrime . truncations)
 
-e37 = sum $ take 11 $ filter isTruncPrime [8..]
+e37 :: Integer
+e37 = fromIntegral
+    . sum
+    . take 11
+    . filter isTruncPrime
+    $ [8..]

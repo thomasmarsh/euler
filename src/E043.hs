@@ -32,4 +32,5 @@ isSpecial p
 special :: [[Int]]
 special = filter isSpecial pandigitals
 
+e43 :: Integer
 e43 = fromIntegral $ sum $ map (unDigits 10) special

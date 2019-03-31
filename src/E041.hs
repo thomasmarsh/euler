@@ -4,7 +4,8 @@ import Data.Digits (unDigits)
 import Data.List (permutations)
 import Data.Numbers.Primes (isPrime)
 
-e41 = fromIntegral $ maximum
+e41 :: Integer
+e41 = maximum
     [ n
     | i <- [1..9]
     , p <- permutations [1..i]

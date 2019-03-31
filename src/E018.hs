@@ -1,13 +1,15 @@
 module E018 (e18) where
 
 f :: [[Int]] -> Int
-f = head . foldr f (repeat 0)
+f = head . foldr go (repeat 0)
   where
     maxPairs ys = zipWith max ys $ tail ys
-    f s rs = zipWith (+) (maxPairs rs) s
+    go s rs = zipWith (+) (maxPairs rs) s
 
+e18 :: Integer
 e18 = fromIntegral $ f tri
 
+tri :: [[Int]]
 tri = [
     [75],
     [95, 64],

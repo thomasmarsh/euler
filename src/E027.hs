@@ -17,6 +17,7 @@ q a b
     | otherwise = 0
     where xs = takeWhile (\n -> isPrime $ n*n+a*n+b) [0..]
 
+e27 :: Integer
 e27 = fromIntegral $ snd $ maximumBy (comparing fst)
     [ (q a b, a*b)
     | a <- [-999..999]

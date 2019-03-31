@@ -4,6 +4,7 @@ import           Data.Digits (digits)
 import           Data.List (nub)
 import qualified Data.Set as S
 
+e32 :: Integer
 e32 = sum $ S.fromList
     [ c
     | a <- [2..99]

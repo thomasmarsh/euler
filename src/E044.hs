@@ -1,16 +1,21 @@
 module E044 (e44) where
 
-pentagonal n = (n * (3 * n - 1)) `div` 2
+import Control.Monad (guard)
+import Util (isInt)
 
-ps = map pentagonal [1..]
+pentagonals :: Integral a => [a]
+pentagonals = [(n * (3*n-1)) `div` 2 | n <- [1..]]
 
-isPerfectSquare n = n == floor (sqrt $ fromIntegral n)
-
-isPentagonal n = x `mod` 6 == 5
+isPentagonal :: Integer -> Bool
+isPentagonal n = isInt inverse
     where
-        x = 1+24*n
+        inverse :: Double
+        inverse = (sqrt (1 + 24 * fromIntegral n) + 1) / 6
 
-e44 = undefined
-
-main = do
-    mapM_ (print . (\n -> (n, isPentagonal n))) ps
+e44 :: Integer
+e44 = minimum $ do
+        let n = 5000
+        j <- take n pentagonals
+        k <- takeWhile (<j) (take n pentagonals)
+        guard $ isPentagonal (j+k) && isPentagonal (j-k)
+        pure $ j-k

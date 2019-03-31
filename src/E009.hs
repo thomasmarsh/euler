@@ -1,20 +1,15 @@
 module E009 (e9) where
 
-triplets :: Int -> [[Int]]
-triplets n =
-    [ [a,b,c]
-    | a <- [0..n-1]
-    , b <- [a+1..n]
-    , let x = sqrt $ fromIntegral (a*a+b*b)
-    , let c = truncate x
-    , let a' = fromIntegral a
-    , let b' = fromIntegral b
-    , a'+b'+x == fromIntegral n
-    , x > b'
-    ]
+import Control.Monad (guard)
 
-f :: Int -> Int
-f = product . head . triplets
+tripletProduct :: Integral a => a -> a
+tripletProduct n
+    = head $ do
+        a <- [1..n `div` 3]
+        b <- [a..n `div` 2]
+        let c = n-a-b
+        guard $ a*a + b*b == c*c
+        pure $ a*b*c
 
 e9 :: Integer
-e9 = fromIntegral $ f 1000
+e9 = tripletProduct 1000

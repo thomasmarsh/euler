@@ -2,13 +2,11 @@
 
 module E013 (e13) where
 
-import Data.Digits (digits, unDigits)
 import Data.String.QQ
+import Util (onDigits)
 
 f :: String -> Integer
-f   = unDigits 10
-    . take 10
-    . digits 10
+f   = onDigits (take 10)
     . sum
     . map read
     . lines

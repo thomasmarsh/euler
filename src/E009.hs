@@ -13,6 +13,8 @@ triplets n =
     , x > b'
     ]
 
+f :: Int -> Int
 f = product . head . triplets
 
+e9 :: Integer
 e9 = fromIntegral $ f 1000

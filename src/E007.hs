@@ -17,4 +17,5 @@ f n = go 0 1 2
             | prime (j+1) = go (i+1) (j+1) (j+1)
             | otherwise = go i (j+1) p 
 
+e7 :: Integer
 e7 = fromIntegral $ f 10001

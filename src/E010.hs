@@ -1,7 +1,6 @@
 module E010 (e10) where
 
-import Data.Numbers.Primes
+import Data.Numbers.Primes (primes)
 
-f n = sum $ takeWhile (< n) primes
-
-e10 = f 2000000
+e10 :: Integer
+e10 = sum . takeWhile (< 2000000) $ primes

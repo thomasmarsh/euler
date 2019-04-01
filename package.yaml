@@ -1,4 +1,4 @@
-name:                euler
+name:                project-euler
 version:             0.1.0.0
 github:              "thomasmarsh/euler"
 license:             BSD3
@@ -48,7 +48,7 @@ executables:
     - -O2
     - -Wall
     dependencies:
-    - euler
+    - project-euler
 
 tests:
   euler-test:
@@ -59,4 +59,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - euler
+    - project-euler

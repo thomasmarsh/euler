@@ -1,5 +1,6 @@
 module Util
-    ( isInt
+    ( comb
+    , isInt
     , onDigits
     ) where
 
@@ -15,3 +16,9 @@ onDigits = dimap (digits 10) (unDigits 10)
 --Returns if x is an int to n decimal places
 isInt :: (RealFrac a) => a -> Bool
 isInt x = x == fromInteger (round x)
+
+comb :: Int -> [a] -> [[a]]
+comb m xs = combsBySize xs !! m
+ where
+   combsBySize = foldr f ([[]] : repeat [])
+   f x next = zipWith (++) (map (map (x:)) ([]:next)) next

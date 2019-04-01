@@ -52,6 +52,7 @@ import E047
 import E048
 import E049
 import E050
+import E052
 import E092
 
 data Problem
@@ -110,5 +111,6 @@ problems = M.fromList
     , (48, PN e48)
     , (49, PN e49)
     , (50, PN e50)
+    , (52, PN e52)
     , (92, PN e92)
     ]

@@ -1,14 +1,14 @@
 module E008 (e8) where
 
-import Data.Char
-import Data.List.Split
-
-f :: Int -> String -> Int
-f n s = maximum $ map mul (chunksOf n s)
-    where mul x = product $ map digitToInt x
+import Data.Char (digitToInt)
+import Data.List.Split (divvy)
 
 e8 :: Integer
-e8 = fromIntegral $ f 13 input
+e8 = fromIntegral
+    . maximum
+    . map product
+    . divvy 13 1
+    $ digitToInt <$> input
 
 input :: String
 input = "73167176531330624919225119674426574742355349194934\

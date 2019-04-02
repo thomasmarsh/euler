@@ -17,28 +17,35 @@ findFileInPaths filename ps = do
         then pure Nothing
         else pure $ Just (snd $ head valid)
 
-runFileProblem :: FilePath -> (String -> Integer) -> IO ()
-runFileProblem s f
+runFileProblem :: FilePath -> (String -> Result) -> Result -> IO ()
+runFileProblem s f solution
     = do
         path <- findFileInPaths s [".", "src", "../src"]
         case path of
-            Nothing -> print $ "ERROR: could not find input file: " ++ s
+            Nothing -> putStrLn $ "ERROR: could not find input file: " ++ s
             Just file -> do
                 contents <- readFile file
-                print $ f contents
+                putStrLn $ checkSolution (f contents) solution
 
-runProblem :: Problem -> IO ()
-runProblem p
+runProblem :: Problem -> Result -> IO ()
+runProblem p solution
     = case p of
-        PN f -> print f
-        PF s f -> runFileProblem f s
+        PN f -> putStrLn $ checkSolution f solution
+        PF s f -> runFileProblem f s solution
+
+checkSolution :: Result -> Result -> String
+checkSolution result solution
+    | result == solution = show result
+    | otherwise = show result ++ " (MISMATCH! Expected: " ++ show solution ++ ")"
 
 runOne :: Int -> IO ()
 runOne n = do
     putStr $ "Problem #" ++ show n ++ ": "
     case M.lookup n problems of
         Nothing -> putStrLn "unimplemented"
-        Just p -> runProblem p
+        Just p -> case M.lookup n solutions of
+                    Nothing -> putStrLn "(missing solution entry)"
+                    Just s -> runProblem p s
 
 runAll :: IO ()
 runAll = mapM_ runOne (sort $ M.keys problems)
